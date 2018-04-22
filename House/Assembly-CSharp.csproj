@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CircularMotion.cs" />
      <Compile Include="Assets\DiceRoller.cs" />
      <None Include="Assets\Easy DG Assets 1 - Wood + Stone\README.txt" />
  <Reference Include="UnityEngine.UIAutomation">

@@ -32,8 +32,8 @@ public class DiceRoller : MonoBehaviour {
 	}
 
 	public bool doubles() {
-		int Die1 = Random.Range(0, 7);
-		int Die2 = Random.Range(0, 7);
+		int Die1 = Random.Range(1, 7);
+		int Die2 = Random.Range(1, 7);
 		bool doubles = false;
 		DiceTotal = 0;
 
