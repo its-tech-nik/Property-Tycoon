@@ -1,8 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DiceRoller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/FillNames.cs">
     <Files>
-      <File FileName="Assets/DiceRoller.cs" Line="31" Column="44" />
+      <File FileName="Assets/AssignTokens.cs" Line="101" Column="26" />
+      <File FileName="Assets/Player.cs" Line="15" Column="16" />
+      <File FileName="Assets/ValidateSetup.cs" Line="22" Column="40" />
+      <File FileName="Assets/FillNames.cs" Line="8" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

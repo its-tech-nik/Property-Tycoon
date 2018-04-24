@@ -15,7 +15,6 @@ public class ValidateSetup : MonoBehaviour {
 	public InputField timer;
 
 	public GameObject SetupGame;
-	public GameObject LeftSideBar;
 	public GameObject ChooseToken;
 
 	// Warnings
@@ -24,34 +23,48 @@ public class ValidateSetup : MonoBehaviour {
 
 	private Toggle tog;
 
-	public void validateStart() {
-		int players = 0;
+	public static string[] names = new string[6];
+
+	public bool validateStart() {
+		int player = 0;
 
 		if (!p1.text.Equals ("")) {
-			players++;
+			names [player] = p1.text;
+			player++;
 		}
 
 		if (!p2.text.Equals ("")) {
-			players++;
+			names [player] = p2.text;
+			player++;
 		}
 
 		if (!p3.text.Equals ("")) {
-			players++;
+			names [player] = p3.text;
+			player++;
 		}
 
 		if (!p4.text.Equals ("")) {
-			players++;
+			names [player] = p4.text;
+			player++;
 		}
 
 		if (!p5.text.Equals ("")) {
-			players++;
+			names [player] = p5.text;
+			player++;
 		}
 
 		if (!p6.text.Equals ("")) {
-			players++;
+			names [player] = p6.text;
+			player++;
 		}
 
-		if (players >= 2) {
+		for (int i = 0; i < names.Length; i++) {
+			if (names [i] != null) {
+				Debug.Log (names [i]);
+			}
+		}
+
+		if (player >= 2) {
 			int minutes = 0;
 
 			if (timer.IsActive () && !timer.text.Equals ("") && int.Parse (timer.text) >= 5) {
@@ -60,21 +73,26 @@ public class ValidateSetup : MonoBehaviour {
 				Debug.Log ("The timer is " + minutes);
 
 				Debug.Log ("Start Timed Game");
-				SetupGame.SetActive (false);
-				LeftSideBar.SetActive (true);
-				ChooseToken.SetActive (true);
+				return true;
 			} else if (timer.IsActive()) {
 				Debug.Log ("No game");
 				timerWarningMessage.SetActive (true);
+				return false;
 			} else if (!timer.IsActive()){
 				Debug.Log ("Start Normal Game");
-				SetupGame.SetActive (false);
-				LeftSideBar.SetActive (true);
-				ChooseToken.SetActive (true);
+				return true;
 			}
 		} else {
 			Debug.Log ("No game");
 			playersWarningMessage.SetActive (true);
+		}
+		return false;
+	}
+
+	public void startGame () {
+		if(validateStart()) {
+			SetupGame.SetActive (false);
+			ChooseToken.SetActive (true);
 		}
 	}
 
@@ -86,6 +104,7 @@ public class ValidateSetup : MonoBehaviour {
 		}
 	}
 
+	// this is the AI toggle button
 	public void getToggle(Toggle tog) {
 		this.tog = tog;
 	}
