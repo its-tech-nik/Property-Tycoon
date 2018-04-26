@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\DiceRoller.cs" />
      <Compile Include="Assets\Scripts\FillNames.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayersScripts.cs" />
      <Compile Include="Assets\Scripts\SetupNames.cs" />
      <Compile Include="Assets\Scripts\ValidateSetup.cs" />
      <None Include="Assets\Easy DG Assets 1 - Wood + Stone\README.txt" />
