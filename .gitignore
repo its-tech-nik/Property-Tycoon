@@ -1,11 +1,11 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
+House/Temp/
 Obj/
 Build
-/Builds/
-/Library/
+House/Builds/
+House/Library/
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*
