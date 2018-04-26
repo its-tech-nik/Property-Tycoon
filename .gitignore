@@ -29,6 +29,7 @@ sysinfo.txt
 .consulo/
 /*.tmp
 /*.svd
+*.dwlt
 
 # ============ #
 # OS generated #
