@@ -23,7 +23,7 @@ CREATE TABLE DevProperties (
     rent_5 INTEGER NOT NULL,
     PRIMARY KEY
         (tileNo)
-    );
+);
 
 	/*STATIONS*/
 
@@ -38,7 +38,7 @@ CREATE TABLE Stations (
     rent4_St INTEGER NOT NULL DEFAULT 200,
     PRIMARY KEY
         (tileNo)
-    );
+);
 
 	/*UTILITIES*/
 

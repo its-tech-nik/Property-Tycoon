@@ -5,12 +5,7 @@ using UnityEngine.UI;
 public class ValidateSetup : MonoBehaviour {
 
 	// Input Name Fields
-	public InputField p1;
-	public InputField p2;
-	public InputField p3;
-	public InputField p4;
-	public InputField p5;
-	public InputField p6;
+	public InputField[] fields;
 
 	public InputField timer;
 
@@ -28,39 +23,13 @@ public class ValidateSetup : MonoBehaviour {
 	public bool validateStart() {
 		int player = 0;
 
-		if (!p1.text.Equals ("")) {
-			names [player] = p1.text;
-			player++;
-		}
+		// Get the names from fields and save then in an array.
+		for(int i = 0; i < fields.Length; i++) {
+			string content = fields [i].text;
 
-		if (!p2.text.Equals ("")) {
-			names [player] = p2.text;
-			player++;
-		}
-
-		if (!p3.text.Equals ("")) {
-			names [player] = p3.text;
-			player++;
-		}
-
-		if (!p4.text.Equals ("")) {
-			names [player] = p4.text;
-			player++;
-		}
-
-		if (!p5.text.Equals ("")) {
-			names [player] = p5.text;
-			player++;
-		}
-
-		if (!p6.text.Equals ("")) {
-			names [player] = p6.text;
-			player++;
-		}
-
-		for (int i = 0; i < names.Length; i++) {
-			if (names [i] != null) {
-				Debug.Log (names [i]);
+			if(!content.Equals("")) {
+				names [player] = content;
+				player++;
 			}
 		}
 
