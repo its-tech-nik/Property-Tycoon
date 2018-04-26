@@ -5,12 +5,13 @@
 Obj/
 Build
 /House/Builds/
-House/Library/
+/House/Library/
 sysinfo.txt
 *.stackdump
 /House/Assets/AssetStoreTools*
 *.apk
 *.unitypackage
+*dwlt
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
