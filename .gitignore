@@ -2,7 +2,7 @@
 # Unity generated #
 # =============== #
 /House/Temp/
-Obj/
+/House/obj/
 Build
 /House/Builds/
 /House/Library/
@@ -29,13 +29,12 @@ sysinfo.txt
 .consulo/
 /*.tmp
 /*.svd
-*.dwlt
+/House/Library/CurrentLayout.dwlt
 
 # ============ #
 # OS generated #
 # ============ #
-.DS_Store*
-/House/.DS_Store*
+House/.DS_Store
 ._*
 .Spotlight-V100
 .Trashes
