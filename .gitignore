@@ -35,7 +35,7 @@ sysinfo.txt
 # OS generated #
 # ============ #
 .DS_Store
-House/.DS_Store
+/House/.DS_Store
 ._*
 .Spotlight-V100
 .Trashes
