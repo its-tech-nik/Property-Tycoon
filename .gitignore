@@ -8,7 +8,7 @@ House/Builds/
 House/Library/
 sysinfo.txt
 *.stackdump
-/Assets/AssetStoreTools*
+/House/Assets/AssetStoreTools*
 *.apk
 *.unitypackage
 
@@ -42,4 +42,4 @@ ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
 Corridor/Library/ShaderCache/
-Corridor/Library/metadata/
+/House/Corridor/Library/metadata/

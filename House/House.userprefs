@@ -1,8 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Database/databaseConnection.cs">
     <Files>
-      <File FileName="Assets/Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DiceRoller.cs" Line="30" Column="3" />
+      <File FileName="Assets/Scripts/Board.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FillNames.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AssignTokens.cs" Line="27" Column="19" />
+      <File FileName="Assets/Scripts/PlayersScripts.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Database/databaseConnection.cs" Line="9" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

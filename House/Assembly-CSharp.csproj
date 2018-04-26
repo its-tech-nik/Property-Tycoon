@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Database\databaseConnection.cs" />
      <Compile Include="Assets\Easy DG Assets 1 - Wood + Stone\EmptyClass.cs" />
      <Compile Include="Assets\Scripts\AssignTokens.cs" />
      <Compile Include="Assets\Scripts\Board.cs" />
