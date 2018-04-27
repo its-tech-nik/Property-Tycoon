@@ -28,9 +28,9 @@ sysinfo.txt
 *.pidb
 .DS_Store
 
-###
+####
 # OS generated
-###
+####
 .DS_Store
 .DS_Store?
 ._*
