@@ -19,6 +19,7 @@ public class ValidateSetup : MonoBehaviour {
 	private Toggle tog;
 
 	public static string[] names = new string[6];
+	public static bool[] bot = new bool[6];
 
 	public bool validateStart() {
 		int player = 0;
@@ -28,6 +29,15 @@ public class ValidateSetup : MonoBehaviour {
 			string content = fields [i].text;
 
 			if(!content.Equals("")) {
+
+				Toggle a = fields [i].FindSelectableOnRight () as Toggle;
+
+				if (a.isOn) {
+					bot[player] = true;
+				} else {
+					bot[player] = false;
+				}
+
 				names [player] = content;
 				player++;
 			}
