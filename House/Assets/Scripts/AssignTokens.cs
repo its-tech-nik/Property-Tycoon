@@ -16,7 +16,7 @@ public class AssignTokens : MonoBehaviour {
 	private int index = 0;
 
 	void Start() {
-		
+
 	}
 
 	public void setHeader() {
