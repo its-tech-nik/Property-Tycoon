@@ -9269,6 +9269,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 720881848}
+--- !u!1 &725510712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 725510714}
+  - component: {fileID: 725510713}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &725510713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725510712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fc4fa3144874f03a46fc4377834ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &725510714
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725510712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729815729
 GameObject:
   m_ObjectHideFlags: 0
@@ -12551,7 +12591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605906d2aae1544b8ab1d940cbe6fd59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
+  players:
+  - {fileID: 485595727}
+  - {fileID: 316598601}
+  - {fileID: 340293634}
+  - {fileID: 2080727211}
+  - {fileID: 478242855}
+  - {fileID: 1872590536}
 --- !u!1 &973633464
 GameObject:
   m_ObjectHideFlags: 0
@@ -13386,10 +13432,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad79489ca522458aa0ca76f78507e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggles: []
-  chooseTokenGameObj: {fileID: 0}
-  startGame: {fileID: 0}
-  header: {fileID: 0}
+  toggles:
+  - {fileID: 1307113406}
+  - {fileID: 2054773876}
+  - {fileID: 861111081}
+  - {fileID: 1865548691}
+  - {fileID: 523377301}
+  - {fileID: 961699973}
+  chooseTokenGameObj: {fileID: 1589375908}
+  startGame: {fileID: 1988010429}
+  header: {fileID: 595842089}
 --- !u!1 &1010328205
 GameObject:
   m_ObjectHideFlags: 0
@@ -13435,7 +13487,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425f2d2b9e5a049b4baa38ec13271d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObj: []
+  playerObj:
+  - {fileID: 542757332}
+  - {fileID: 1751770701}
+  - {fileID: 1734556954}
+  - {fileID: 793150585}
+  - {fileID: 240702470}
+  - {fileID: 551819449}
 --- !u!1 &1013846641
 GameObject:
   m_ObjectHideFlags: 0
