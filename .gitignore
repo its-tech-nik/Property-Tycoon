@@ -1,47 +1,41 @@
-# =============== #
-# Unity generated #
-# =============== #
-/House/Temp/
-/House/obj/
-Build
-/House/Builds/
-/House/Library/
+###
+# Unity folders and files
+###
+[Aa]ssets/AssetStoreTools*
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Oo]bj/
+[Tt]emp/
+[Uu]nityGenerated/
+# file on crash reports
 sysinfo.txt
-*.stackdump
-/House/Assets/AssetStoreTools*
-*.apk
-*.unitypackage
-
-# ===================================== #
-# Visual Studio / MonoDevelop generated #
-# ===================================== #
-[Ee]xported[Oo]bj/
-.vs/
-/*.userprefs
-/*.csproj
-/*.pidb
+# Unity3D generated meta files
 *.pidb.meta
-/*.suo
-/*.sln*
-/*.user
-/*.unityproj
-/*.booproj
-.consulo/
-/*.tmp
-/*.svd
-/House/Library/CurrentLayout.dwlt
 
-# ============ #
-# OS generated #
-# ============ #
+###
+# VS/MD solution and project files
+###
+[Ee]xportedObj/
+*.booproj
+*.csproj
+*.sln
+*.suo
+*.svd
+*.unityproj
+*.user
+*.userprefs
+*.pidb
 .DS_Store
-/House/.DS_Store
+
+###
+# OS generated
+###
+.DS_Store
+.DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
 Icon?
 ehthumbs.db
-[Tt]humbs.db
-[Dd]esktop.ini
-/House/Corridor/Library/ShaderCache/
-/House/Corridor/Library/metadata/
+Thumbs.db
