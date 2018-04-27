@@ -16,14 +16,7 @@ public class AssignTokens : MonoBehaviour {
 	private int index = 0;
 
 	void Start() {
-		fillTests ();
-	}
-
-	private void fillTests() {
-		players [0] = new Player ("Nikandros", 1);
-		players [1] = new Player ("Kiriakos", 2);
-		players [2] = new Player ("Bot", 3);
-		numberOfPlayers = 3;
+		
 	}
 
 	public void setHeader() {
@@ -31,13 +24,11 @@ public class AssignTokens : MonoBehaviour {
 	}
 
 	public void chooseToken() {
-		//int token = 0;
-
 		for(int i = 0; i < toggles.Length; i++) {
 			Toggle t = toggles [i];
 
 			if(t.isOn) {
-				players [index] = new Player (ValidateSetup.names[index], i);
+				players [index] = new Player (ValidateSetup.names[index], i, ValidateSetup.bot[i]);
 				ToggleGroup tg = t.GetComponentInParent<ToggleGroup> ();
 				tg.SetAllTogglesOff ();
 				t.interactable = false;
