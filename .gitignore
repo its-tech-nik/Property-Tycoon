@@ -45,9 +45,15 @@ sysinfo.txt
 /*.svd
 /House/Library/CurrentLayout.dwlt
 
+<<<<<<< HEAD
 # ============ #
 # OS generated #
 # ============ #
+=======
+####
+# OS generated
+####
+>>>>>>> gitignore update
 .DS_Store
 /House/.DS_Store
 ._*
