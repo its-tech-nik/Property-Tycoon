@@ -46,4 +46,8 @@ public class DiceRoller : MonoBehaviour {
 
 		return doubles;
 	}
+
+	public void delete() {
+		Debug.Log(DiceValues) ;
+	}
 }
