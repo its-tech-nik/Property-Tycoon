@@ -20,6 +20,7 @@ public class FillNames : MonoBehaviour {
 	}
 
 	public void addNames() {
+		//Debug.Log ("addNames()");
 		for (int i = 0; i < AssignTokens.numberOfPlayers; i++) {
 			players [i].text = AssignTokens.players [i].getName ();
 		}

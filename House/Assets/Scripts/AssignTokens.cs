@@ -20,15 +20,19 @@ public class AssignTokens : MonoBehaviour {
 	}
 
 	public void setHeader() {
-		header.text = ValidateSetup.names[index] + " Choose Token:";
+		if(index < 6) {
+			header.text = ValidateSetup.names[index] + " Choose Token:";
+		}
 	}
 
 	public void chooseToken() {
+		//Debug.Log ("chooseToken()");
+
 		for(int i = 0; i < toggles.Length; i++) {
 			Toggle t = toggles [i];
 
 			if(t.isOn) {
-				players [index] = new Player (ValidateSetup.names[index], i, ValidateSetup.bot[i]);
+				players [index] = new Player (ValidateSetup.names[index], i, ValidateSetup.bot[index]);
 				ToggleGroup tg = t.GetComponentInParent<ToggleGroup> ();
 				tg.SetAllTogglesOff ();
 				t.interactable = false;
@@ -38,7 +42,7 @@ public class AssignTokens : MonoBehaviour {
 			}
 		}
 
-		if (ValidateSetup.names [index] == null) {
+		if (index > 5 || ValidateSetup.names [index] == null) {
 			numberOfPlayers = index;
 			chooseTokenGameObj.SetActive (false);
 			startGame.SetActive (true);

@@ -22,6 +22,8 @@ public class ValidateSetup : MonoBehaviour {
 	public static bool[] bot = new bool[6];
 
 	public bool validateStart() {
+		//Debug.Log ("validateStart()");
+
 		int player = 0;
 
 		// Get the names from fields and save then in an array.
@@ -37,6 +39,8 @@ public class ValidateSetup : MonoBehaviour {
 				} else {
 					bot[player] = false;
 				}
+
+				//Debug.Log ("Is player no " + (player + 1) + " a bot? " + bot[player]);
 
 				names [player] = content;
 				player++;
@@ -69,6 +73,8 @@ public class ValidateSetup : MonoBehaviour {
 	}
 
 	public void startGame () {
+		//Debug.Log ("startGame()");
+
 		if(validateStart()) {
 			SetupGame.SetActive (false);
 			ChooseToken.SetActive (true);
@@ -76,6 +82,8 @@ public class ValidateSetup : MonoBehaviour {
 	}
 
 	public void addBotName(InputField field) {
+		//Debug.Log ("addBotName()");
+
 		if (tog.isOn && field.text.Equals ("")) {
 			field.text = "BOT";
 		} else if (field.text.Equals ("BOT")) {

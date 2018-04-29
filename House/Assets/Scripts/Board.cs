@@ -9,6 +9,10 @@ public class Board : MonoBehaviour {
 
 	public Text player1;
 
+	public GameObject[] boardGraphics;
+
+	public Tile[] board = new Tile[40];
+
 	// Use this for initialization
 	void Start () {
 		

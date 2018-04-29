@@ -18,13 +18,16 @@ public class PlayersScripts : MonoBehaviour {
 	}
 
 	public void showPlayers() {
-		Debug.Log (AssignTokens.numberOfPlayers);
+
+		//Debug.Log ("showPlayers()");
+
 		for(int i = 0; i < AssignTokens.numberOfPlayers; i++) {
 			playerObj [i].SetActive (true);
 
 
 
 			if (AssignTokens.players [i].isBot ()) {
+				//Debug.Log ("Player no " + (i + 1) + " is a bot");
 				GameObject human = playerObj [i].transform.Find ("Human").gameObject;
 				GameObject bot = playerObj [i].transform.Find ("Bot").gameObject;
 
