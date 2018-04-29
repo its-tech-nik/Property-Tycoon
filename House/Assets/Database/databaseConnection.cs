@@ -19,6 +19,8 @@ public class databaseConnection : MonoBehaviour {
 		//insertCardData();
 
 		//viewWallet("Bank");
+
+		getStaticData ();
 	}
 
 	// Update is called once per frame
@@ -295,6 +297,7 @@ public class databaseConnection : MonoBehaviour {
 	//		return groupOwnership;
 	//	}
 
+	// this doesn't need to run all the time.
 	private void insertStaticData (){
 		using (IDbConnection dbConnection = new SqliteConnection (connectionString)) {
 			//Opens the connection
@@ -312,6 +315,7 @@ public class databaseConnection : MonoBehaviour {
 		}
 	}
 
+	// this doesn't need to run all the time.
 	private void insertCardData(){
 		using (IDbConnection dbConnection = new SqliteConnection (connectionString)) {
 			//Opens the connection
@@ -335,30 +339,29 @@ public class databaseConnection : MonoBehaviour {
 			}
 		}
 	}
-	/*
-	private ArrayList getStaticData(){
-		for( int i = 0; i< 40; i++){
-			using (IDbConnection dbConnection = new SqliteConnection(connectionString)) {
-				dbConnection.Open();
 
-				using (IDbCommand dbCmd = dbConnection.CreateCommand()) {
-					string sqlQuery = "SELECT * from DevProperties WHERE tileNo = "+ IntegerToString(i);
-					dbCmd.CommandText = sqlQuery;
-					using(IDataReader reader = dbCmd.ExecuteReader())
+	private ArrayList GetBoardData(){
+		using (IDbConnection dbConnection = new SqliteConnection(connectionString)) {
+			dbConnection.Open();
+
+			using (IDbCommand dbCmd = dbConnection.CreateCommand()) {
+				string sqlQuery = "SELECT * from DevProperties\nUNION \nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, rent1_St AS rent_1, rent2_St AS rent_2,rent3_St AS rent_3, rent4_St AS rent_4, NULL AS rent_5\nfrom Stations\nUNION \nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, rent1_Ut AS rent_1, rent2_Ut AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5\nfrom Utilities\nunion\nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, NULL AS rent_1, NULL AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5\nfrom NonProperties\nORDER BY tileNo";
+				dbCmd.CommandText = sqlQuery;
+				using(IDataReader reader = dbCmd.ExecuteReader())
+				{
+					while (reader.Read())
 					{
-						while (reader.Read())
-						{
-							Debug.Log(reader.GetString(0));
-						}
-						dbConnection.Close();
-						reader.Close();
+						Debug.Log(reader.GetDecimal(0));
 					}
+					dbConnection.Close();
+					reader.Close();
 				}
 			}
 		}
+		return null;
 	}
 
-	private ArrayList getCards(){
+	/*private ArrayList getCards(){
 		using (IDbConnection dbConnection = new SqliteConnection(connectionString)) {
 			dbConnection.Open();
 

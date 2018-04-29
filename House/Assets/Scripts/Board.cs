@@ -15,7 +15,7 @@ public class Board : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		//databaseConnection.
 	}
 	
 	// Update is called once per frame
