@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Tile : MonoBehaviour {
+public class TileGameObject : MonoBehaviour {
 
 	public GameObject nextTile;
 

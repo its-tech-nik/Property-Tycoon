@@ -53,20 +53,20 @@ public class ValidateSetup : MonoBehaviour {
 			if (timer.IsActive () && !timer.text.Equals ("") && int.Parse (timer.text) >= 5) {
 				minutes = int.Parse (timer.text);
 
-				Debug.Log ("The timer is " + minutes);
+				//Debug.Log ("The timer is " + minutes);
 
-				Debug.Log ("Start Timed Game");
+				//Debug.Log ("Start Timed Game");
 				return true;
 			} else if (timer.IsActive()) {
-				Debug.Log ("No game");
+				//Debug.Log ("No game");
 				timerWarningMessage.SetActive (true);
 				return false;
 			} else if (!timer.IsActive()){
-				Debug.Log ("Start Normal Game");
+				//Debug.Log ("Start Normal Game");
 				return true;
 			}
 		} else {
-			Debug.Log ("No game");
+			//Debug.Log ("No game");
 			playersWarningMessage.SetActive (true);
 		}
 		return false;

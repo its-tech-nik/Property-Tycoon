@@ -1,14 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿public class Token {
 
-public class Token {
-
+	private string shape;
 	private int position;
 	private bool passedGo;
 
-	public Token () {
+	public Token (string shape) {
 		position = 0;
 		passedGo = false;
+		this.shape = shape;
 	}
 
 	/**
@@ -27,6 +26,13 @@ public class Token {
 		return false;
 	}
 
+	public bool HasPassedGo() {
+		return passedGo;
+	}
+
+	public string GetShape() {
+		return shape;
+	}
 
 }
 

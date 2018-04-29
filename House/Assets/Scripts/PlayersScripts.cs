@@ -26,7 +26,7 @@ public class PlayersScripts : MonoBehaviour {
 
 
 
-			if (AssignTokens.players [i].isBot ()) {
+			if (Game.players [i].isBot ()) {
 				//Debug.Log ("Player no " + (i + 1) + " is a bot");
 				GameObject human = playerObj [i].transform.Find ("Human").gameObject;
 				GameObject bot = playerObj [i].transform.Find ("Bot").gameObject;

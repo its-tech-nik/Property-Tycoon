@@ -10,7 +10,7 @@ public class AssignTokens : MonoBehaviour {
 	public GameObject startGame;
 	public Text header;
 
-	public static Player[] players = new Player[6];
+	//public static Player[] players = new Player[6];
 	public static int numberOfPlayers;
 
 	private int index = 0;
@@ -32,7 +32,7 @@ public class AssignTokens : MonoBehaviour {
 			Toggle t = toggles [i];
 
 			if(t.isOn) {
-				players [index] = new Player (ValidateSetup.names[index], i, ValidateSetup.bot[index]);
+				Game.players [index] = new Player (ValidateSetup.names[index], "", ValidateSetup.bot[index]);
 				ToggleGroup tg = t.GetComponentInParent<ToggleGroup> ();
 				tg.SetAllTogglesOff ();
 				t.interactable = false;

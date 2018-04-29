@@ -1,20 +1,15 @@
-﻿using System;
-using UnityEngine.UI;
-using UnityEngine;
-
-public class Player
+﻿public class Player
 {
 	private string name;
 	private Token token;
 	private bool bot;
 	private int money;
 
-	public Player (string name, int token, bool bot)
+	public Player (string name, string token, bool bot)
 	{
 		this.name = name;
 
-		this.token = new Token();
-
+		this.token = new Token (token);
 
 		this.bot = bot;
 		// check what is the initial amount of money for a player
@@ -35,15 +30,15 @@ public class Player
 		money -= outcoming;
 	}
 
-	public Token getToken() {
-		return token;
+	public string getToken() {
+		return token.GetShape ();
 	}
 
 	public string getName() {
 		return name;
 	}
 
-	public Boolean isBot() {
+	public bool isBot() {
 		return bot;
 	}
 }
