@@ -27,7 +27,7 @@ INSERT INTO DevProperties (
 	(35,"Ibis Close","Green",320,28,56,150,450,1000,1200,1400),
 	(38,"Hawking Way","Deep blue",350,35,70,175,500,1100,1300,1500),
 	(40,"Turing Heights","Deep blue",400,50,100,200,600,1400,1700,2000);
-  
+
 INSERT INTO Stations (
 	tileNo, prop_name, group_, cost, rent1_St, rent2_St, rent3_St, rent4_St)
 	VALUES
@@ -42,7 +42,7 @@ INSERT INTO Utilities (
 	(13, "Tesla Power Co", "Utilities", 150, 4, 10), 
 	(29, "Edison Water", "Utilities", 150, 4, 10);
 
-INSERT INTO NonProperties (
+INSERT INTO nonProperties (
 	tileNo, prop_name, group_, cost)
 	VALUES
 	(1,"Go","Game",-200),
@@ -58,10 +58,11 @@ INSERT INTO NonProperties (
 	(37,"Opportunity Knocks","OK Card",0),
 	(39,"Super Tax","Tax",100);
 
-INSERT INTO Players (
-	player_id, gameNo, token_loc, token_shape, wallet, get_out_of_jail_card, bot, player_name)
-	VALUES
-	("BANK", 1, -1, "NONE", 10000, 0, 0, "KINGSLEY");
+
+INSERT INTO Players 
+	(player_id, gameNo, token_loc, token_shape, wallet, get_out_of_jail_card, bot, jail, player_name)
+	SELECT "BANK", gameNo ,  0, "BANK", 10000, 2, 0, 0, "KINGSLEY SAGE"
+	FROM GameTable ORDER BY gameNo DESC LIMIT 1
 
 INSERT INTO Account (
 	player_id, password_)
@@ -70,6 +71,7 @@ INSERT INTO Account (
 
 INSERT INTO devAssets (
 	assetNo, developed, player_id, gameNo, mortgaged)
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 	VALUES
@@ -95,18 +97,51 @@ INSERT INTO devAssets (
 	(35,0,"BANK", 0),
 	(38,0,"BANK", 0),
 	(40,0,"BANK", 0);
+=======
+	SELECT
+	(2,0,"BANK", player_id, gameNo, 0),
+	(4,0,"BANK",,,0),
+	(7,0,"BANK",,,0),
+	(9,0,"BANK",,,0),
+	(10,0,"BANK",,,0),
+	(12,0,"BANK",,,0),
+	(14,0,"BANK",,,0),
+	(15,0,"BANK",,,0),
+	(17,0,"BANK",,,0),
+	(19,0,"BANK",,,0),
+	(20,0,"BANK",,,0),
+	(22,0,"BANK",,,0),
+	(24,0,"BANK",,,0),
+	(25,0,"BANK",,,0),
+	(27,0,"BANK",,,0),
+	(28,0,"BANK",,,0),
+	(30,0,"BANK",,,0),
+	(32,0,"BANK",,,0),
+	(33,0,"BANK",,,0),
+	(35,0,"BANK",,,0),
+	(38,0,"BANK",,,0),
+	(40,0,"BANK",,,0)
+	FROM Players WHERE gameNo = SELECT gameNo ;
+>>>>>>> database latest vesion micheal do not work if you don't see this message
 
 INSERT INTO StationAssets (
 	assetNo, type, player_id, gameNo, mortgaged)
-	VALUES
-	(6,0,"BANK", 0),
-	(16,0,"BANK", 0),
-	(26,0,"BANK", 0),
-	(36,0,"BANK", 0);
+	SELECT 
+	(6,0,"BANK",,,0),
+	(16,0,"BANK",,,0),
+	(26,0,"BANK",,,0),
+	(36,0,"BANK",,,0);
 
 INSERT INTO UtilitiesAssets (
-	assetNo, type, player_id, gameNo, mortgaged)
+	assetNo, type, player_id)
+	SELECT 
+	(13,0,"BANK",,,0),
+	(29,0,"BANK",,,0);
+
+INSERT INTO PotLuck (
+	cardNo, description, category, cost, moveToLocation, receiver)
 	VALUES
+<<<<<<< HEAD
 	(13,0,"BANK", 0),
 	(29,0,"BANK", 0);
 =======
@@ -152,6 +187,8 @@ INSERT INTO UtilitiesAssets (
 INSERT INTO PotLuck (
 	cardNo, description, category, cost, moveToLocation, receiver)
 	VALUES
+=======
+>>>>>>> database latest vesion micheal do not work if you don't see this message
 		(0,"Pay a £10 fine or take opportunity knocks","Choice",10,NULL,"FreeParking"),
 		(1,"Go back to Crapper Street","GoBackwards",0,2,NULL),
 		(2,"Advance to go","GoForward",0,1,NULL),
@@ -200,5 +237,8 @@ union
 SELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, NULL AS rent_1, NULL AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5
 from NonProperties
 ORDER BY tileNo
+<<<<<<< HEAD
 >>>>>>> DB API
+=======
+>>>>>>> database latest vesion micheal do not work if you don't see this message
 

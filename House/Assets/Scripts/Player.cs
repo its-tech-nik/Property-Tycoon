@@ -6,10 +6,10 @@ public class Player
 {
 	private string name;
 	private Token token;
-	private Boolean bot;
+	private bool bot;
 	private int money;
 
-	public Player (string name, int token, Boolean bot)
+	public Player (string name, int token, bool bot)
 	{
 		this.name = name;
 
