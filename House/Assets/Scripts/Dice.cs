@@ -12,7 +12,11 @@ public class Dice {
 		doubles = false;
 	}
 
-	public int[] Roll() {
+	public int Roll() {
+
+		doneRolling = false;
+		doubles = false;
+
 		Die[0] = Random.Range(1, 7);
 		Die[1] = Random.Range(1, 7);
 
@@ -20,7 +24,9 @@ public class Dice {
 			doubles = true;
 		}
 
-		return Die;
+		doneRolling = true;
+
+		return Die[0] + Die[1];
 	}
 
 	public bool IsDoubles() {
@@ -35,7 +41,7 @@ public class Dice {
 		return Die [die];
 	}
 
-	public int GetRoll() {
-		return Die[0] + Die[1];
+	public int[] GetRoll() {
+		return Die;
 	}
 }

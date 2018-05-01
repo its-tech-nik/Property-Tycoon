@@ -5,6 +5,9 @@ using UnityEngine;
 public class TokenScript : MonoBehaviour {
 
 	public GameObject StartingTile;
+	public float extraPositioning;
+
+	private GameObject currentTile;
 
 	// Use this for initialization
 	void Start () {
@@ -16,12 +19,12 @@ public class TokenScript : MonoBehaviour {
 	}
 
 	public void move() {
+		//Vector3 pos = new Vector3 (StartingTile.transform.position.x, StartingTile.transform.position.y, StartingTile.transform.position.z);
 
-		Vector3 pos = new Vector3 (StartingTile.transform.position.x, StartingTile.transform.position.y, StartingTile.transform.position.z);
+		Vector3 move = new Vector3 (1, 0, 0);
 
-		this.transform.position = new Vector3(0, 0, 0);
-		this.transform.position = pos;
+		this.transform.Translate (move);
 
-		Debug.Log ("This: " + this.transform.position + "\tStartingTile: " + StartingTile.transform.position);
+		//Debug.Log (StartingTile.name + ": " + this.transform.position + "\tStartingTile: " + StartingTile.transform.position);
 	}
 }

@@ -34,5 +34,8 @@
 		return shape;
 	}
 
+	public int GetPosition() {
+		return position;
+	}
 }
 

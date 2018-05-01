@@ -4,6 +4,7 @@
 	private Token token;
 	private bool bot;
 	private int money;
+	private bool isMoving;
 
 	public Player (string name, string token, bool bot)
 	{
@@ -14,6 +15,7 @@
 		this.bot = bot;
 		// check what is the initial amount of money for a player
 		money = 1500;
+		isMoving = true;
 
 		// here add the query for the database that is going to save the player's info
 	}
@@ -40,6 +42,14 @@
 
 	public bool isBot() {
 		return bot;
+	}
+
+	public int GetPosition() {
+		return token.GetPosition ();
+	}
+
+	public bool IsMoving() {
+		return isMoving;
 	}
 }
 
