@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # =============== #
 # Unity generated #
 # =============== #
@@ -6,6 +7,19 @@
 Build
 /House/Builds/
 /House/Library/
+=======
+###
+# Unity folders and files
+###
+#[Aa]ssets/AssetStoreTools*
+[Bb]uild/
+House/[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Oo]bj/
+[Tt]emp/
+[Uu]nityGenerated/
+# file on crash reports
+>>>>>>> gitignore update
 sysinfo.txt
 *.stackdump
 /House/Assets/AssetStoreTools*
