@@ -6,7 +6,7 @@ using System.Data;
 using System;
 
 
-public class databaseConnection : MonoBehaviour {
+public class DatabaseConnection : MonoBehaviour {
 
 	private string connectionString;
 	private int gameNo;
@@ -16,16 +16,39 @@ public class databaseConnection : MonoBehaviour {
 	void Start () {
 		connectionString = "URI=file:" + Application.dataPath + "/PropertyTycoon.db";
 
-		/*createBoard();
-		newGame(true); //Needs input args
-		insertStaticData ();
-		insertCardData();
-		createPlayers (1500);
-		insertStartOwnership ();*/
+		//createBoard();
+		//newGame(true); //Needs input args
+		//insertStaticData ();
+		//insertCardData();
+		//createPlayers (1500);
+		//insertStartOwnership ();
+		GetBoardData ();
 	}
 
 	// Update is called once per frame
 	void Update () {}
+
+	private void GetBoardData(){
+		using (IDbConnection dbConnection = new SqliteConnection(connectionString)) {
+			dbConnection.Open();
+
+			using (IDbCommand dbCmd = dbConnection.CreateCommand()) {
+				string sqlQuery = "SELECT * from DevProperties\nUNION \nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, rent1_St AS rent_1, rent2_St AS rent_2,rent3_St AS rent_3, rent4_St AS rent_4, NULL AS rent_5\nfrom Stations\nUNION \nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, rent1_Ut AS rent_1, rent2_Ut AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5\nfrom Utilities\nunion\nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, NULL AS rent_1, NULL AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5\nfrom NonProperties\nORDER BY tileNo";
+
+				dbCmd.CommandText = sqlQuery;
+				using(IDataReader reader = dbCmd.ExecuteReader())
+				{
+					while (reader.Read())
+					{
+						Game.board [reader.GetInt16 (0) - 1] = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+					}
+
+					dbConnection.Close();
+					reader.Close();
+				}
+			}
+		}
+	}
 
 	private String GetDataString(String query){
 		String result = "error";
@@ -268,28 +291,6 @@ public class databaseConnection : MonoBehaviour {
 		makeChange(sqlQueryStationAssets);
 		String sqlQueryPropAssets = String.Format("INSERT INTO devAssets (\n\tassetNo, developed, player_id, gameNo, mortgaged)\n\tVALUES\n\t(2,0,\"BANK\", "+gameNo+", 0),\n\t(4,0,\"BANK\", "+gameNo+",0),\n\t(7,0,\"BANK\", "+gameNo+",0),\n\t(9,0,\"BANK\", "+gameNo+",0),\n\t(10,0,\"BANK\", "+gameNo+",0),\n\t(12,0,\"BANK\", "+gameNo+",0),\n\t(14,0,\"BANK\", "+gameNo+",0),\n\t(15,0,\"BANK\", "+gameNo+",0),\n\t(17,0,\"BANK\", "+gameNo+",0),\n\t(19,0,\"BANK\", "+gameNo+",0),\n\t(20,0,\"BANK\", "+gameNo+",0),\n\t(22,0,\"BANK\", "+gameNo+",0),\n\t(24,0,\"BANK\", "+gameNo+",0),\n\t(25,0,\"BANK\", "+gameNo+",0),\n\t(27,0,\"BANK\", "+gameNo+",0),\n\t(28,0,\"BANK\", "+gameNo+",0),\n\t(30,0,\"BANK\", "+gameNo+",0),\n\t(32,0,\"BANK\", "+gameNo+",0),\n\t(33,0,\"BANK\", "+gameNo+",0),\n\t(35,0,\"BANK\", "+gameNo+",0),\n\t(38,0,\"BANK\", "+gameNo+",0),\n\t(40,0,\"BANK\", "+gameNo+",0);");
 		makeChange(sqlQueryPropAssets);
-	}
-
-	public void GetBoardData(){
-		using (IDbConnection dbConnection = new SqliteConnection(connectionString)) {
-			dbConnection.Open();
-
-			using (IDbCommand dbCmd = dbConnection.CreateCommand()) {
-				string sqlQuery = "SELECT * from DevProperties\nUNION \nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, rent1_St AS rent_1, rent2_St AS rent_2,rent3_St AS rent_3, rent4_St AS rent_4, NULL AS rent_5\nfrom Stations\nUNION \nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, rent1_Ut AS rent_1, rent2_Ut AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5\nfrom Utilities\nunion\nSELECT tileNo, prop_name, group_, cost, NULL as undeveloped_rent, NULL AS undeveloped_rentAll, NULL AS rent_1, NULL AS rent_2,NULL AS rent_3, NULL AS rent_4, NULL AS rent_5\nfrom NonProperties\nORDER BY tileNo";
-
-				dbCmd.CommandText = sqlQuery;
-				using(IDataReader reader = dbCmd.ExecuteReader())
-				{
-					while (reader.Read())
-					{
-						Game.board [reader.GetInt16 (0) - 1] = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
-					}
-
-					dbConnection.Close();
-					reader.Close();
-				}
-			}
-		}
 	}
 
 
