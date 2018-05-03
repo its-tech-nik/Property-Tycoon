@@ -8,6 +8,7 @@ using System;
 
 public class DatabaseConnection : MonoBehaviour {
 
+
 	private string connectionString;
 	private int gameNo;
 
@@ -26,7 +27,8 @@ public class DatabaseConnection : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {}
+	void Update () {
+	}
 
 	private void GetBoardData(){
 		using (IDbConnection dbConnection = new SqliteConnection(connectionString)) {
@@ -40,7 +42,12 @@ public class DatabaseConnection : MonoBehaviour {
 				{
 					while (reader.Read())
 					{
-						Game.board [reader.GetInt16 (0) - 1] = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+						Tile t = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+
+						//Tile._tileEventHandler += new TileAddDelegate(TileListener.ShowTiles);
+						//t.LocatePlayer(5);
+
+						Game.board [reader.GetInt16 (0) - 1] = t;
 					}
 
 					dbConnection.Close();

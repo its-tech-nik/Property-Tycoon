@@ -1,9 +1,28 @@
 ﻿using System.Collections;
-public class Tile : TileListener {
+using System;
+using UnityEngine;
+
+public delegate void TileAddDelegate(TileArgs e);
+
+public class TileArgs : EventArgs {
+	public Player _player;
+	public Tile _tile;
+
+	public TileArgs(Tile t, Player p) {
+		this._player = p;
+		this._tile = t;
+	}
+}
+
+public delegate void OnTop(TileArgs e);
+
+public class Tile {
+
+	public event TileAddDelegate _tileEventHandler;
 	private int price;
 	private Property property;
 
-	public Tile(string name, string group, int price) {
+	public Tile(string name, string group, int price) :base() {
 		this.price = price;
 		property = new Property (name, group);
 	}
@@ -27,10 +46,20 @@ public class Tile : TileListener {
 	}
 
 	public void LocatePlayer(Player p) {
-
 		// do some staff regarding the player when it lands on a tile on the board.
 
-		_fireLocationEvent(this, p);
+		if(p != null) {
+			TileArgs e = new TileArgs (this, p);
+			OnPlayerLocation (e);
+		}
+
+		// fire the event
+	}
+
+	public void OnPlayerLocation(TileArgs e) {
+		if (_tileEventHandler != null) {
+			_tileEventHandler (e);
+		}
 	}
 
 	public void Build() {

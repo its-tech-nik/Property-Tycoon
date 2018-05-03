@@ -33,7 +33,14 @@ public class Database : MonoBehaviour {
 				{
 					while (reader.Read())
 					{
-						Game.board [reader.GetInt16 (0) - 1] = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+
+						Tile t = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+
+						t._tileEventHandler += new TileAddDelegate(TileListener.ShowTiles);
+
+						Game.board [reader.GetInt16 (0) - 1] = t;
+
+						//t.LocatePlayer(5);
 
 						//Tile tile = Game.board [reader.GetInt16 (0) - 1];
 						//Debug.Log (tile.GetName() + ", " + tile.GetPrice() + ", " + tile.GetGroup());

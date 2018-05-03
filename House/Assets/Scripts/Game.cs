@@ -59,13 +59,16 @@ public class Game : MonoBehaviour {
 
 		p.movePlayer (roll);
 
+		// this line of code fires the event
+		board [p.GetPosition ()].LocatePlayer (p);
+
 		Vector3 pos = boardGraphics [p.GetPosition ()].transform.position;
 
 		Tokens [p.getToken ()].transform.position = pos;
-		Debug.Log ("Should be: " + board[p.GetPosition()].GetName());
-		Debug.Log (Tokens [p.getToken ()].name + ": " + Tokens [p.getToken ()].transform.position + "\tStartingTile: " + boardGraphics [p.GetPosition ()].transform.position);
+		//Debug.Log (board[p.GetPosition()].GetName());
+		//Debug.Log (Tokens [p.getToken ()].name + ": " + Tokens [p.getToken ()].transform.position + "\tStartingTile: " + boardGraphics [p.GetPosition ()].transform.position);
 
-		Debug.Log ("Total: " + dice.GetRoll() + "\tCounter: " + DoublesCounter);
+		//Debug.Log ("Total: " + dice.GetRoll() + "\tCounter: " + DoublesCounter);
 	}
 
 	public void AddTokens() {

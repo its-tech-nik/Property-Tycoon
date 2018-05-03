@@ -1,25 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
-public interface TileListenerInt {
-	void PlayerReceived(Tile t, Player p);
-}
+using UnityEngine;
 
 public class TileListener {
-	private List<TileListenerInt> _listeners = new List<TileListenerInt>();
-
-	public void AddListener(TileListenerInt l) {
-		_listeners.Add (l);
-	}
-
-	public  void removeTileListener( TileListenerInt l ) {
-		_listeners.Remove( l );
-	}
-
-	public void _fireLocationEvent(Tile t, Player p) {
-		foreach(TileListenerInt l in _listeners) {
-			l.PlayerReceived(t, p);
-		}
+	public static void ShowTiles(TileArgs e) {
+		Debug.Log("showTile()" + e._tile.GetName() + "\t" + e._player.getName());
+		//Tile.ShowTile (e);
 	}
 }
 
