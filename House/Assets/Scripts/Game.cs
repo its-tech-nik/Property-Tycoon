@@ -17,6 +17,8 @@ public class Game : MonoBehaviour {
 
 	private int DoublesCounter = 0;
 
+	public GameObject Buy_Auction;
+
 	// board check
 	// pot luck
 	// opportunity knock
