@@ -7,17 +7,21 @@ public class Game : MonoBehaviour {
 	public GameObject[] boardGraphics;
 	public static Tile[] board = new Tile[40];
 	public Text RollField;
+	public Text Buy_Auction_Property;
 
 	public GameObject[] tokens;
 	public static Dictionary<string, GameObject> Tokens;
-	public static Player[] players = new Player[6];
+	//public static Player[] players = new Player[6];
+	public static List<Player> players = new List<Player> ();
 
-	public static int currentPlayer = 0;
+	public static int currentPlayer = -1;
 	public static Dice dice = new Dice();
 
 	private int DoublesCounter = 0;
 
 	public GameObject Buy_Auction;
+
+	public bool HasStarted = false;
 
 	// board check
 	// pot luck
@@ -30,6 +34,10 @@ public class Game : MonoBehaviour {
 	void Start () {
 		//Debug.Log ("Game Object");
 	}
+
+	public void StartGame() {
+		HasStarted = true;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,11 +45,15 @@ public class Game : MonoBehaviour {
 			RollField.text = dice.GetDie (0) + "+" + dice.GetDie (1);
 			RollField.gameObject.SetActive (true);
 		}
+		if(HasStarted && currentPlayer > -1) {
+			Buy_Auction_Property.text = players [currentPlayer].GetName ();
+		}
 	}
 
 	public void RollDice() {
+
 		int roll = dice.Roll ();
-		Player p = players [currentPlayer];
+
 
 		if (dice.IsDoubles ()) {
 			DoublesCounter++;
@@ -53,18 +65,20 @@ public class Game : MonoBehaviour {
 				Debug.Log ("In jail");
 			}
 		} else {
-			DoublesCounter = 0;
 			nextPlayer ();
+
+			DoublesCounter = 0;
 		}
+
+		Player p = players [currentPlayer];
 
 		p.movePlayer (roll);
 
-		// this line of code fires the event
 		board [p.GetPosition ()].LocatePlayer (p);
 
 		Vector3 pos = boardGraphics [p.GetPosition ()].transform.position;
 
-		Tokens [p.getToken ()].transform.position = pos;
+		Tokens [p.GetToken ()].transform.position = pos;
 		//Debug.Log (board[p.GetPosition()].GetName());
 		//Debug.Log (Tokens [p.getToken ()].name + ": " + Tokens [p.getToken ()].transform.position + "\tStartingTile: " + boardGraphics [p.GetPosition ()].transform.position);
 
@@ -93,5 +107,9 @@ public class Game : MonoBehaviour {
 		if(currentPlayer >= AssignTokens.numberOfPlayers) {
 			currentPlayer = 0;
 		}
+	}
+
+	public void AuctionProperty() {
+
 	}
 }

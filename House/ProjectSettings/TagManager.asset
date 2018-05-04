@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerName
   - AI_Toggle
+  - buyauction
   layers:
   - Default
   - TransparentFX

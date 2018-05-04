@@ -22,7 +22,7 @@ public class FillNames : MonoBehaviour {
 	public void addNames() {
 		//Debug.Log ("addNames()");
 		for (int i = 0; i < AssignTokens.numberOfPlayers; i++) {
-			players [i].text = Game.players [i].getName ();
+			players [i].text = Game.players [i].GetName ();
 		}
 	}
 }

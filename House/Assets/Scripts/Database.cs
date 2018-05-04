@@ -34,11 +34,11 @@ public class Database : MonoBehaviour {
 					while (reader.Read())
 					{
 
-						Tile t = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+						//Tile t = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
 
-						t._tileEventHandler += new TileAddDelegate(TileListener.ShowTiles);
+						//t._tileEventHandler += new TileAddDelegate(new );
 
-						Game.board [reader.GetInt16 (0) - 1] = t;
+						//Game.board [reader.GetInt16 (0) - 1] = t;
 
 						//t.LocatePlayer(5);
 

@@ -6,9 +6,7 @@ using System.Data;
 using System;
 
 
-public class DatabaseConnection : MonoBehaviour {
-
-
+public class databaseConnection : MonoBehaviour {
 	private string connectionString;
 	private int gameNo;
 
@@ -42,10 +40,19 @@ public class DatabaseConnection : MonoBehaviour {
 				{
 					while (reader.Read())
 					{
-						Tile t = new Tile (reader.GetString(1), reader.GetString(2), reader.GetInt16(3));
+						Tile t = null;
+						if (reader.GetValue(6).GetType() != typeof(DBNull)) {
+							t = new Tile (reader.GetString (1), reader.GetString (2), reader.GetInt16 (3));
+						} else if(reader.GetValue(6).GetType() == typeof(DBNull)) {
+							t = new Tile (reader.GetString(1));
+						}
 
-						//Tile._tileEventHandler += new TileAddDelegate(TileListener.ShowTiles);
-						//t.LocatePlayer(5);
+						t._tileEventHandler += new TileAddDelegate(delegate (TileArgs e) {
+							//Debug.Log (e._player.GetName() + " at " + e._tile.Getname());
+							TileListener.action(e._tile, e._player);
+						});
+
+						//t._tileEventHandler += new TileAddDelegate(TileListener.action(TileArgs e));
 
 						Game.board [reader.GetInt16 (0) - 1] = t;
 					}

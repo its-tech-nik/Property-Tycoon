@@ -21,10 +21,20 @@ public class Tile {
 	public event TileAddDelegate _tileEventHandler;
 	private int price;
 	private Property property;
+	private string name;
 
 	public Tile(string name, string group, int price) :base() {
+
+		//Debug.Log ("Tile(string name, string group, int price)");
 		this.price = price;
+		this.name = name;
 		property = new Property (name, group);
+	}
+
+	public Tile(string name) :base() {
+		//Debug.Log ("Tile(string " + name + ")");
+		this.name = name;
+		property = null;
 	}
 
 	/**
@@ -60,6 +70,10 @@ public class Tile {
 		if (_tileEventHandler != null) {
 			_tileEventHandler (e);
 		}
+	}
+
+	public Property GetProperty() {
+		return property;
 	}
 
 	public void Build() {

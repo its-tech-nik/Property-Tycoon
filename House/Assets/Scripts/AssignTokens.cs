@@ -36,7 +36,8 @@ public class AssignTokens : MonoBehaviour {
 			if(t.isOn) {
 				string token = tokens[i];
 
-				Game.players [index] = new Player (ValidateSetup.names[index], token, ValidateSetup.bot[index]);
+				//Game.players [index] = new Player (ValidateSetup.names[index], token, ValidateSetup.bot[index]);
+				Game.players.Add (new Player(ValidateSetup.names[index], token, ValidateSetup.bot[index]));
 				ToggleGroup tg = t.GetComponentInParent<ToggleGroup> ();
 				tg.SetAllTogglesOff ();
 				t.interactable = false;
