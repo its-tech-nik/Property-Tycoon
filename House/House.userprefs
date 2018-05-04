@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CircularMotion.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Objects/TileListener.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/AssignTokens.cs" Line="4" Column="19" />
+      <File FileName="Assets/Scripts/Objects/Tile.cs" Line="66" Column="19" />
+      <File FileName="Assets/Scripts/Objects/Player.cs" Line="20" Column="38" />
+      <File FileName="Assets/Scripts/Game.cs" Line="103" Column="3" />
+      <File FileName="Assets/Scripts/Dice.cs" Line="15" Column="21" />
+      <File FileName="Assets/Scripts/Objects/Token.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Database.cs" Line="41" Column="9" />
+      <File FileName="Assets/Scripts/databaseConnection.cs" Line="52" Column="9" />
+      <File FileName="Assets/Scripts/CircularMotion.cs" Line="18" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
