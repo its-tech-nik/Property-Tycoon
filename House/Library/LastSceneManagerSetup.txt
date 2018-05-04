@@ -1,10 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Main Menu.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scenes/Main_Menu_Scene.unity
+- path: Assets/Scenes/Main_Scene.unity
   isLoaded: 1
   isActive: 1
-- path: Assets/Scenes/monopoly.unity
-  isLoaded: 0
-  isActive: 0
