@@ -43,6 +43,10 @@ public class BuildingManager : MonoBehaviour {
 				iterations++;
 			}
 
+			if(iterations == 5) {
+				iterations = 0;
+			}
+
 			string money = Game.players [Game.currentPlayer].GetMoney ().ToString ();
 
 			MoneyDisplay.text = money;

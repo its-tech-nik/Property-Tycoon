@@ -14,7 +14,7 @@ public class Game : MonoBehaviour {
 	//public static Player[] players = new Player[6];
 	public static List<Player> players = new List<Player> ();
 
-	public static int currentPlayer = 0;
+	public static int currentPlayer = -1;
 	public static Dice dice = new Dice();
 
 	private int DoublesCounter = 0;

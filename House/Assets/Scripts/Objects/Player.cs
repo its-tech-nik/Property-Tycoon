@@ -48,7 +48,6 @@ public class Player
 	}
 
 	public void BuyProperty(Tile t) {
-		BuildingManager.iterations = 0;
 		money -= t.GetPrice ();
 		owns.Add (t.GetProperty());
 		t.GetProperty ().BuyIt (this);
