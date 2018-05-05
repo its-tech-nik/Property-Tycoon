@@ -7,6 +7,8 @@ public class BuildingManager : MonoBehaviour {
 
 	public Text[] properties;
 
+	public Text MoneyDisplay;
+
 	public static bool needsUpdate;
 	public static int iterations = 0;
 
@@ -22,7 +24,6 @@ public class BuildingManager : MonoBehaviour {
 			List<Property> owned = Game.players [currentPlayer].GetProperties ();
 
 			int index = 0;
-			Debug.Log ("updated " + owned.Count);
 
 			foreach(Property p in owned) {
 				if(index < owned.Count && index < properties.Length) {
@@ -41,6 +42,10 @@ public class BuildingManager : MonoBehaviour {
 				needsUpdate = true;
 				iterations++;
 			}
+
+			string money = Game.players [Game.currentPlayer].GetMoney ().ToString ();
+
+			MoneyDisplay.text = money;
 		}
 	}
 }

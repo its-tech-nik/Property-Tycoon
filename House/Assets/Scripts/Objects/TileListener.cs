@@ -8,11 +8,19 @@ public class TileListener : MonoBehaviour {
 	public GameObject auctionORbuy;
 	public static GameObject auction_buy;
 
+	public GameObject ownedText;
+	public static GameObject owned;
+
+	public GameObject endTurn;
+	public static GameObject endTurn2;
+
 	private static Tile currentTile;
 	private static Player p;
 
 	void Start() {
 		auction_buy = auctionORbuy;
+		owned = ownedText;
+		endTurn2 = endTurn;
 	}
 
 	public void PropertyListener() {
@@ -23,26 +31,36 @@ public class TileListener : MonoBehaviour {
 		currentTile = currentT;
 		p = p1;
 
+		Debug.Log ("The Player: " + p1.GetName() + " is at: " + currentT.GetName());
+
 		if(currentTile.GetProperty() == null) {
 			Debug.Log ("It is a card or tax");
+			endTurn2.SetActive (true);
 
-		} else if(currentTile.GetProperty().GetOwner() != null || p.Equals(currentTile.GetProperty().GetOwner())) {
-			Debug.Log ("It is owned by someone else or yourself.");
-			//p.PayRent(currentTile.GetProperty());
-		} else if(p.PassedGo() && currentTile.IsSellable() && p.GetMoney() >= currentTile.GetPrice()) { // ask if the player does not have money for the property is the property going to auction automatically?
+		}/* else if(p.PassedGo() && currentTile.IsSellable() && p.GetMoney() >= currentTile.GetPrice()) { // ask if the player does not have money for the property is the property going to auction automatically?
 			// show UI where it asks for auction or buy.
-			auction_buy.SetActive (true);
-		} else if(p.GetMoney() < currentTile.GetPrice() && !p.Equals(currentTile.GetProperty().GetOwner())) {
-			if(currentTile.GetProperty().GetOwner()!= null)
-				Debug.Log ("You don't have enough money to buy the property.");
+		}*/ else if(currentTile.GetProperty().GetOwner() != null || p.Equals(currentTile.GetProperty().GetOwner())) {
+			Debug.Log ("It is owned by someone else or yourself.");
+			owned.SetActive (true);
+			//p.PayRent(currentTile.GetProperty());
+		} else if(currentTile.GetProperty ().GetOwner () == null && p.PassedGo() && currentTile.IsSellable()) {
+			if (p.GetMoney () < currentTile.GetPrice ()) {
+				Debug.Log ("You don't have enough money to buy the property. It will automatically be auctioned.");
+				endTurn2.SetActive (true);
+			} else {
+				auction_buy.SetActive (true);
+				Debug.Log ("WTF is that?");
+			}
 		} else {
 			Debug.Log ("Not a possible thing to do!!!");
+			endTurn2.SetActive (true);
 			// SUGGESTIONS: maybe have the build here!
 		}
 	}
 
 	public void Buy() {
 		p.BuyProperty (currentTile);
+		endTurn2.SetActive (true);
 	}
 
 	public static void Auction(Tile tile) {
@@ -116,6 +134,7 @@ public class TileListener : MonoBehaviour {
 			// second bidder doesn't have the opportunity to bid.
 			Debug.Log ("None bought this area. It is owned by the bank.");
 		}
+		endTurn2.SetActive (true);
 	}
 
     public static bool MinimumPlayersForAuction(List<Player> players) {

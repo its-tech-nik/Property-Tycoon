@@ -86,7 +86,7 @@ public class Tile {
 	}
 
 	public string GetName() {
-		return property.GetName();
+		return name;
 	}
 
 	public string GetGroup() {

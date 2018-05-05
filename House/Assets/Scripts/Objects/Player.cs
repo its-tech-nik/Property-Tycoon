@@ -66,7 +66,10 @@ public class Player
 	}
 
 	public void movePlayer(int positions) {
-		token.movePiece (positions);
+		if (token.movePiece (positions)) {
+			money += 200;
+		}
+
 		BuildingManager.needsUpdate = true;
 	}
 

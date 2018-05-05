@@ -21,7 +21,8 @@
 
 		if(position >= 40) {
 			position -= 40;
-			return passedGo = true;
+			passedGo = true;
+			return true;
 		}
 		return false;
 	}

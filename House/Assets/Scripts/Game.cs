@@ -14,7 +14,7 @@ public class Game : MonoBehaviour {
 	//public static Player[] players = new Player[6];
 	public static List<Player> players = new List<Player> ();
 
-	public static int currentPlayer = -1;
+	public static int currentPlayer = 0;
 	public static Dice dice = new Dice();
 
 	private int DoublesCounter = 0;
@@ -65,7 +65,6 @@ public class Game : MonoBehaviour {
 				Debug.Log ("In jail");
 			}
 		} else {
-			nextPlayer ();
 
 			DoublesCounter = 0;
 		}
@@ -100,13 +99,15 @@ public class Game : MonoBehaviour {
 		}*/
 	}
 
-	private void nextPlayer() {
+	public void nextPlayer() {
 		currentPlayer++;
 		//Debug.Log ("Next player is player no. " + currentPlayer);
 
 		if(currentPlayer >= AssignTokens.numberOfPlayers) {
 			currentPlayer = 0;
 		}
+
+		BuildingManager.needsUpdate = true;
 	}
 
 	public void AuctionProperty() {
