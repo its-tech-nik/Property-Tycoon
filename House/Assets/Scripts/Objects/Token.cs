@@ -1,4 +1,6 @@
-﻿public class Token {
+﻿using UnityEngine;
+
+public class Token {
 
 	private string shape;
 	private int position;

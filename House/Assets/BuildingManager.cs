@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class BuildingManager : MonoBehaviour {
 
 	public Text[] properties;
+	public GameObject[] propertiesColorred;
 
 	public Text MoneyDisplay;
 
 	public static bool needsUpdate;
-	public static int iterations = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,27 +25,37 @@ public class BuildingManager : MonoBehaviour {
 
 			int index = 0;
 
+			foreach (GameObject g in propertiesColorred) {
+				for (int i = 0; i < g.transform.childCount; i++) {
+					g.transform.GetChild (i).gameObject.SetActive (false);
+				}
+			}
+
 			foreach(Property p in owned) {
+				foreach(GameObject g in propertiesColorred) {
+					if(g.name.Equals(p.GetGroup())) {
+						for(int i = 0; i < g.transform.childCount; i++) {
+							if(!g.transform.GetChild (i).gameObject.activeSelf) {
+								g.transform.GetChild (i).gameObject.SetActive (true);
+								break;
+							}
+						}
+					}
+				}
+
 				if(index < owned.Count && index < properties.Length) {
 					properties [index].text = p.GetName ();
 					index++;
 				}
 			}
 
+
+
 			for(int i = owned.Count; i < properties.Length; i++) {
 				properties [i].text = "";
 			}
 
 			needsUpdate = false;
-
-			if(iterations < 5) {
-				needsUpdate = true;
-				iterations++;
-			}
-
-			if(iterations == 5) {
-				iterations = 0;
-			}
 
 			string money = Game.players [Game.currentPlayer].GetMoney ().ToString ();
 

@@ -1,4 +1,6 @@
-﻿public class Property : Card {
+﻿using UnityEngine;
+
+public class Property : Card {
 
 	private string group;
 	private Player owner;
@@ -8,6 +10,7 @@
 		this.group = group;
 		numberOfHouses = 0;
 		owner = null;
+		Debug.Log (group);
 	}
 
 	public void BuyIt(Player owner) {

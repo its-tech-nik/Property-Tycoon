@@ -51,7 +51,7 @@ public class TileListener : MonoBehaviour {
 		currentTile = currentT;
 		p = p1;
 
-		Debug.Log ("The Player: " + p1.GetName() + " is at: " + currentT.GetName());
+		//Debug.Log ("The Player: " + p1.GetName() + " is at: " + currentT.GetName());
 
 		if(currentTile.GetProperty() == null) {
 			Debug.Log ("It is a card or tax");
@@ -85,11 +85,12 @@ public class TileListener : MonoBehaviour {
 	}
 
 	public void PlayersJoinAuction() {
-		Debug.Log ("PlayersJoinAuction()");
+		Debug.Log ("PlayersJoinAuction("+Game.currentPlayer+")");
 		continuePlayer = Game.currentPlayer;
 		bids = new List<KeyValuePair<Player, int>> ();
 
 		foreach(Player p in Game.players) {
+			p.LeaveAuction ();
 			if (!p.Equals (Game.players [Game.currentPlayer])) {
 				p.JoinAuction ();
 			}
