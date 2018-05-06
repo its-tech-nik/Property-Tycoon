@@ -6,7 +6,8 @@
 
 	public Token (string shape) {
 		position = 0;
-		passedGo = false;
+		// change it before submission
+		passedGo = true;
 		this.shape = shape;
 	}
 

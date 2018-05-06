@@ -87,7 +87,7 @@ public class Game : MonoBehaviour {
 	public void AddTokens() {
 		Tokens = new Dictionary<string, GameObject> ();
 
-		for(int i = 0; i < AssignTokens.numberOfPlayers; i++) {
+		for(int i = 0; i < 6; i++) {
 			Tokens.Add (tokens[i].name, tokens[i]);
 		}
 
@@ -99,9 +99,20 @@ public class Game : MonoBehaviour {
 		}*/
 	}
 
-	public void nextPlayer() {
+	public void nextPlayerSimple() {
 		currentPlayer++;
 		//Debug.Log ("Next player is player no. " + currentPlayer);
+
+		if(currentPlayer >= AssignTokens.numberOfPlayers) {
+			currentPlayer = 0;
+		}
+
+		BuildingManager.needsUpdate = true;
+	}
+
+	public static void nextPlayer2() {
+		Debug.Log ("Next player is player no. " + currentPlayer);
+		currentPlayer++;
 
 		if(currentPlayer >= AssignTokens.numberOfPlayers) {
 			currentPlayer = 0;

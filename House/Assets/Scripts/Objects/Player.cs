@@ -44,11 +44,15 @@ public class Player
 	}
 
 	public void LeaveAuction() {
-
+		auctionIt = false;
 	}
 
-	public void BuyProperty(Tile t) {
-		money -= t.GetPrice ();
+	public void BuyProperty(Tile t, int fromAuction) {
+		if (fromAuction == 0) {
+			money -= t.GetPrice ();
+		} else {
+			money -= fromAuction;
+		}
 		owns.Add (t.GetProperty());
 		t.GetProperty ().BuyIt (this);
 		BuildingManager.needsUpdate = true;
@@ -60,7 +64,7 @@ public class Player
 		}
 	}
 
-	public bool AuctionIt() {
+	public bool InAuction() {
 		return auctionIt;
 	}
 
