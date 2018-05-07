@@ -10,7 +10,6 @@ public class Property : Card {
 		this.group = group;
 		numberOfHouses = 0;
 		owner = null;
-		Debug.Log (group);
 	}
 
 	public void BuyIt(Player owner) {

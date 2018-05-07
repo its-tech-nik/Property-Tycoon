@@ -68,8 +68,8 @@ public class TileListener : MonoBehaviour {
 				Debug.Log ("You don't have enough money to buy the property. It will automatically be auctioned.");
 				endTurn2.SetActive (true);
 			} else {
+				//Debug.Log ("Buy or not panel");
 				auction_buy.SetActive (true);
-				Debug.Log ("WTF is that?");
 			}
 		} else {
 			Debug.Log ("Not a possible thing to do!!!");
@@ -79,7 +79,7 @@ public class TileListener : MonoBehaviour {
 	}
 
 	public void Buy() {
-		Debug.Log ("Property Bought!!!");
+		//Debug.Log ("Property Bought!!!");
 		p.BuyProperty (currentTile, 0);
 		endTurn2.SetActive (true);
 	}

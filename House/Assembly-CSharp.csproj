@@ -55,6 +55,8 @@
      <Compile Include="Assets\BuildingManager.cs" />
      <Compile Include="Assets\Easy DG Assets 1 - Wood + Stone\EmptyClass.cs" />
      <Compile Include="Assets\PlayerMenu.cs" />
+     <Compile Include="Assets\PropertyClicked.cs" />
+     <Compile Include="Assets\PropertyDiplaye.cs" />
      <Compile Include="Assets\Scripts\AssignTokens.cs" />
      <Compile Include="Assets\Scripts\CircularMotion.cs" />
      <Compile Include="Assets\Scripts\Database.cs" />
