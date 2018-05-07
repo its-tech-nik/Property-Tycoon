@@ -7,6 +7,7 @@ public class BuildingManager : MonoBehaviour {
 
 	public Text[] properties;
 	public GameObject[] propertiesColorred;
+	public GameObject[] propertiesColorred2;
 
 	public Text MoneyDisplay;
 
@@ -49,11 +50,36 @@ public class BuildingManager : MonoBehaviour {
 				}
 			}
 
-
-
 			for(int i = owned.Count; i < properties.Length; i++) {
 				properties [i].text = "";
 			}
+
+			if(TradeManager.IsTrading) {
+
+				owned = Game.players [TradeManager.PlayerToTrade].GetProperties ();
+
+				foreach (GameObject g in propertiesColorred2) {
+					for (int i = 0; i < g.transform.childCount; i++) {
+						g.transform.GetChild (i).gameObject.SetActive (false);
+					}
+				}
+
+
+				foreach(Property p in owned) {
+					foreach(GameObject g in propertiesColorred2) {
+						if(g.name.Equals(p.GetGroup())) {
+							for(int i = 0; i < g.transform.childCount; i++) {
+								if(!g.transform.GetChild (i).gameObject.activeSelf) {
+									g.transform.GetChild (i).gameObject.SetActive (true);
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+
+
 
 			needsUpdate = false;
 

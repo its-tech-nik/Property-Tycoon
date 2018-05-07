@@ -26,10 +26,10 @@ public class TileGameObject : MonoBehaviour, IPointerDownHandler {
 
 		foreach(Property p in properties) {
 			if(p.GetGroup().Equals(this.gameObject.name)) {
-				if (PropertyDiplaye.image2.gameObject.activeInHierarchy && PropertyDiplaye.image2.sprite.name.Equals (this.gameObject.name)) {
-					PropertyDiplaye.image2.gameObject.SetActive (false);
-				} else if (!PropertyDiplaye.image2.gameObject.activeInHierarchy) {
-					PropertyDiplaye.image2.gameObject.SetActive (true);
+				if (PropertyDisplay.image2.gameObject.activeInHierarchy && PropertyDisplay.image2.sprite.name.Equals (this.gameObject.name)) {
+					PropertyDisplay.image2.gameObject.SetActive (false);
+				} else if (!PropertyDisplay.image2.gameObject.activeInHierarchy) {
+					PropertyDisplay.image2.gameObject.SetActive (true);
 				}
 				BuildingManager.needsUpdate = true;
 			}

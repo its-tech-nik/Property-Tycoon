@@ -56,7 +56,7 @@
      <Compile Include="Assets\Easy DG Assets 1 - Wood + Stone\EmptyClass.cs" />
      <Compile Include="Assets\PlayerMenu.cs" />
      <Compile Include="Assets\PropertyClicked.cs" />
-     <Compile Include="Assets\PropertyDiplaye.cs" />
+     <Compile Include="Assets\PropertyDisplay.cs" />
      <Compile Include="Assets\Scripts\AssignTokens.cs" />
      <Compile Include="Assets\Scripts\CircularMotion.cs" />
      <Compile Include="Assets\Scripts\Database.cs" />
@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\TokenScript.cs" />
      <Compile Include="Assets\Scripts\ValidateSetup.cs" />
      <Compile Include="Assets\ShowBid.cs" />
+     <Compile Include="Assets\TradeManager.cs" />
      <Compile Include="Assets\TradePropertyAdder.cs" />
      <None Include="Assets\Easy DG Assets 1 - Wood + Stone\README.txt" />
  <Reference Include="UnityEngine.UIAutomation">
